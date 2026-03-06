@@ -1,0 +1,76 @@
+1. Simulation Goal
+
+Develop and test a mobile robot capable of navigating a semi-structured construction site environment while:
+
+* Detecting and localizing potential hazards (humans, moving machinery, debris).
+* Generating a real-time occupancy or 3D map using SLAM.
+* Maintaining safe operation through obstacle avoidance and dynamic path planning.
+
+
+
+ 2. Environment Requirements
+
+The simulated world should represent a mid-scale construction zone with:
+
+* Uneven terrain (ramps, slopes, or dirt mounds).
+* Static objects: scaffolds, crates, barriers, walls, and machinery.
+* Dynamic objects: moving human worker models and vehicles (e.g., excavator).
+* Lighting variation (daylight and shadowed regions).
+* Limited visibility areas (dusty or partially occluded zones).
+
+
+
+ 3. World Scale and Layout
+
+* Total area: approximately 50 m × 50 m.
+* Coordinate origin (0, 0, 0): center of the ground surface.
+* Robot starting position: near one edge of the site (e.g., X = -20, Y = 0, Z = 0).
+* All distances in meters, consistent with Webots physics.
+* Boundaries: fencing or walls enclosing the site.
+
+
+
+ 4. Simulation Physics & Performance
+
+* Physics engine: ODE (Webots default).
+* `basicTimeStep`: 12 ms.
+* Gravity: -9.81 m/s².
+* ERP = 0.2, CFM = 1e-5 (to stabilize contact surfaces).
+* Target frame rate: ≥ 30 FPS.
+* Meshes and textures simplified for smooth performance.
+
+
+
+ 5. Sensors & Robot Interaction Goals
+
+* Sensors simulated: LiDAR, RGB camera, IMU, wheel encoders.
+* Validate sensor fusion performance and localization drift.
+* Ensure collisions and friction behave realistically.
+* Evaluate detection algorithms for:
+
+  * Human workers (motion + color pattern recognition)
+  * Large machinery (shape-based detection)
+  * Debris or hazard zones (depth/obstacle mapping)
+
+
+
+ 6. Evaluation Metrics
+
+* Localization accuracy: ≤ 0.2 m average drift.
+* Hazard detection accuracy: ≥ 85%.
+* Collision rate: 0 during normal operation.
+* Mapping completeness: ≥ 90% of terrain covered in SLAM output.
+* Simulation runtime stability: No frame drops >100 ms.
+
+
+
+ 7. Development Notes
+
+* Keep environment modular for testing: objects can be toggled via DEF/USE nodes.
+* Maintain simple geometry for initial development; add detail later.
+* Regularly save world versions as:
+
+  * `construction_site_v1.wbt`, `construction_site_v2.wbt`, etc.
+* Document changes in a short log for reproducibility.
+
+
