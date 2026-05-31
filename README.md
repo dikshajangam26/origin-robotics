@@ -1,4 +1,4 @@
-# Origin Robotics Software Apprentice - Path Following System
+# Path Following System
 
 A complete **ROS2-based autonomous robot navigation system** for the Pioneer 3-DX robot in Webots simulation. The system demonstrates advanced path planning, trajectory generation, and trajectory tracking with integrated safety features.
 
